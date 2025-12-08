@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Header } from "../../components/Header"
 import { LineChartGraph } from "./charts/LineChartGraph"
 import { SummaryCard } from "./SummaryCards"
+import { PieChartGraph } from './charts/PieChartGraph'
 //import IncomeExpenseChart from "./IncomeExpenseChart"
 
 export function HomePage({ transactionsData }) {
@@ -41,6 +42,20 @@ export function HomePage({ transactionsData }) {
                     <LineChartGraph transactions={transactionsData} isDay={isDay} />
                 </div>
 
+                {/*Pie Chart and Bar Graph*/}
+                <div className="flex gap-4 w-full">
+                    {/*Pie Chart*/}
+                    <div className="w-1/2" >
+                        <h2 className="text-3xl font-semibold text-center mb-4">Spending Per Category</h2>
+                        <PieChartGraph transactions={transactionsData} />
+                    </div>
+
+                    {/*Bar Graph*/}
+                    <div>
+
+                    </div>
+
+                </div>
             </div>
         </>
     )
