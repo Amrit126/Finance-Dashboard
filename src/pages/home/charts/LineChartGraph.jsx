@@ -7,7 +7,7 @@ export function LineChartGraph({ transactions, isDay }) {
 
     return (
         <ResponsiveContainer width="100%" height={400} >
-            <LineChart data={data} margin={{ top: 10, right: 30, left: 30, bottom: 10 }}>
+            <LineChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey={`${isDay ? 'monthAndDay' : 'YearAndMonth'}`} />
                 <YAxis />
