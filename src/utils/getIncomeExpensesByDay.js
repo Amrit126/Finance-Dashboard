@@ -4,14 +4,14 @@ export function getIncomeExpensesByDay(transactions) {
         if (!temp[data.date]) {
             temp[data.date] = {
                 income: 0,
-                expenses: 0,
-                day: data.day
+                expense: 0,
+                monthAndDay: data.monthAndDay
             }
         }
         if (data.type === "Income") {
             temp[data.date].income += data.amount
         } else {
-            temp[data.date].expenses += data.amount
+            temp[data.date].expense += data.amount
         }
     })
 
