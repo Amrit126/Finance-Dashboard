@@ -23,16 +23,21 @@ export function AddingContainer({ transactionsData, setTransactionsData, categor
     }
 
     function submitNewData() {
+        if (!inputText) {
+            alert("Amount can't be empty")
+            return
+        }
+
         const temp = [...transactionsData, {
             id: crypto.randomUUID(),
             type: type,
             category: category,
-            amount: inputText,
+            amount: Number(inputText),
             date: getFormattedDate(true, false),
             monthAndDay: getFormattedDate(false, true),
             YearAndMonth: getFormattedDate(false, false)
         }]
-
+        console.log(temp)
         setInputText('')
         setOpenModal(false)
         setTransactionsData(temp)

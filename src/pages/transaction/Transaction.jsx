@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Header } from "../../components/Header";
 import { AddingContainer } from './AddingContainer';
 
-export function Transaction({ transactionsData, setTransactionsData, categories, setCategories }) {
+export function Transaction({ transactionsData, setTransactionsData, categories }) {
     const [openModal, setOpenModal] = useState(false)
 
     function toggleOpenModal() {

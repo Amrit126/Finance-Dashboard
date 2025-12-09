@@ -20,7 +20,6 @@ function App() {
         transactionsData={transactionsData}
         setTransactionsData={setTransactionsData}
         categories={categories}
-        setCategories={setCategories}
       />} />
       <Route path="/settings" element={<Settings
         transactionsData={transactionsData}

@@ -16,7 +16,7 @@ export function getIncomeExpensesByDay(transactions) {
     })
 
     if (temp.length > 30) {
-        return Object.values(temp).slice(0, 30)
+        return Object.values(temp).slice(temp.length - 30, temp.length)
     }
 
     return (Object.values(temp))

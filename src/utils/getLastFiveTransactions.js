@@ -1,4 +1,6 @@
 export function getLastFiveTransactions(transactions) {
-    const temp = transactions.reverse()
-    return temp.slice(0, 5)
+    const temp = [...transactions]
+    const reverseArray = temp.reverse()
+
+    return reverseArray.slice(0, 5)
 }
