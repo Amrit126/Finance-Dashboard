@@ -9,6 +9,7 @@ import { temporaryData } from './utils/temporaryData'
 
 function App() {
   const [transactionsData, setTransactionsData] = useState(temporaryData())
+  const [categories, setCategories] = useState(["Food", "Rent", "Salary", "Groceries", "Shopping"])
 
   return (
     <Routes>
@@ -18,10 +19,14 @@ function App() {
       <Route path="/transactions" element={<Transaction
         transactionsData={transactionsData}
         setTransactionsData={setTransactionsData}
+        categories={categories}
+        setCategories={setCategories}
       />} />
       <Route path="/settings" element={<Settings
         transactionsData={transactionsData}
         setTransactionsData={setTransactionsData}
+        categories={categories}
+        setCategories={setCategories}
       />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

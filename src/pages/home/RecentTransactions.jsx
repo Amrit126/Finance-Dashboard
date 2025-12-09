@@ -2,7 +2,6 @@ import { getLastFiveTransactions } from "../../utils/getLastFiveTransactions"
 
 export function RecentTransactions({ transactions }) {
     const data = getLastFiveTransactions(transactions)
-    console.log(data)
 
     return (
         <table className="w-full border border-gray-300 rounded-lg overflow-hidden mt-4">
