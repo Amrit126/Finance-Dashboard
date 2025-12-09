@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 import { Header } from "../../components/Header"
 import { LineChartGraph } from "./charts/LineChartGraph"
 import { SummaryCard } from "./SummaryCards"
 import { PieChartGraph } from './charts/PieChartGraph'
 import { BarGraph } from './charts/BarGraph'
-//import IncomeExpenseChart from "./IncomeExpenseChart"
+import { RecentTransactions } from './RecentTransactions'
 
 export function HomePage({ transactionsData }) {
     const [isDay, setIsDay] = useState(true)
@@ -57,6 +58,17 @@ export function HomePage({ transactionsData }) {
                         <BarGraph transactions={transactionsData} />
                     </div>
 
+                </div>
+
+                {/*Last 5 Transactions*/}
+                <div className="w-full flex flex-col items-center mt-8">
+                    <h2 className="text-3xl font-semibold text-center mb-4">Recent Transactions</h2>
+                    <RecentTransactions transactions={transactionsData} />
+                    <Link
+                        className="my-8 bg-gray-500 p-4 rounded-lg transition-all duration-300
+                        hover:scale-105 hover:bg-gray-400 cursor-pointer"
+                        to="/transactions"
+                    >View All</Link>
                 </div>
             </div>
         </>
