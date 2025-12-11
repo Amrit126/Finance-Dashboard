@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Header } from "../../components/Header";
 import { AddingContainer } from './AddingContainer';
+import { FilterContainer } from './FilterContainer';
 
 export function Transaction({ transactionsData, setTransactionsData, categories }) {
     const [openModal, setOpenModal] = useState(false)
@@ -34,6 +35,11 @@ export function Transaction({ transactionsData, setTransactionsData, categories 
 
                     </div>
 
+                </div>
+
+                {/*Filter Section*/}
+                <div className="my-8">
+                    <FilterContainer categories={categories} />
                 </div>
             </div>
         </>
