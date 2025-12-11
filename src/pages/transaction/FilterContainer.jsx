@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { getFilteredData } from '../../utils/getFilteredData'
 
-export function FilterContainer({ categories }) {
+export function FilterContainer({ categories, setFilteredData, transactionsData }) {
     const [showFilter, setShowFilter] = useState(false)
     const [type, setType] = useState('')
     const [category, setCategory] = useState('')
     const [sortConfig, setSortConfig] = useState('')
+
+    useEffect(() => {
+        const temp = getFilteredData(transactionsData, type, category, sortConfig)
+        setFilteredData(temp)
+        console.log(temp.slice(0, 20))
+
+    }, [type, category, sortConfig, setFilteredData, transactionsData])
 
     function toggleShowFilter() {
         setShowFilter(showFilter => (

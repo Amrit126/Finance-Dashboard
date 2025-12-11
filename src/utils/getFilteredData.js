@@ -1,4 +1,8 @@
 export function getFilteredData(transactions, type, category, sortConfig) {
+    if (!type && !category && !sortConfig) {
+        return transactions.reverse()
+    }
+
     let tempData = [...transactions]
 
     if (type) {

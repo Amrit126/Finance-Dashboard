@@ -5,6 +5,7 @@ import { FilterContainer } from './FilterContainer';
 
 export function Transaction({ transactionsData, setTransactionsData, categories }) {
     const [openModal, setOpenModal] = useState(false)
+    const [filteredData, setFilteredData] = useState(null)
 
     function toggleOpenModal() {
         setOpenModal(true)
@@ -39,7 +40,11 @@ export function Transaction({ transactionsData, setTransactionsData, categories 
 
                 {/*Filter Section*/}
                 <div className="my-8">
-                    <FilterContainer categories={categories} />
+                    <FilterContainer categories={categories}
+                        filteredData={filteredData}
+                        setFilteredData={setFilteredData}
+                        transactionsData={transactionsData}
+                    />
                 </div>
             </div>
         </>
