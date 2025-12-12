@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getFilteredData } from '../../utils/getFilteredData'
+import { FilterOptions } from './FilterOptions'
 
 export function FilterContainer({ categories, setFilteredData, transactionsData }) {
     const [showFilter, setShowFilter] = useState(false)
@@ -18,18 +19,6 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
         setShowFilter(showFilter => (
             showFilter ? false : true
         ))
-    }
-
-    function changeType(e) {
-        setType(e.target.value)
-    }
-
-    function changeCategory(e) {
-        setCategory(e.target.value)
-    }
-
-    function changeSortConfig(e) {
-        setSortConfig(e.target.value)
     }
 
     function removeType() {
@@ -91,45 +80,12 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
             </div>
             <div className={`${showFilter ? 'opacity-1' : 'opcaity-0'} flex mt-4 bg-gray p-4 bg-gray-300
              rounded-xl gap-2 transition-all duration-300`}>
-                <label className="text-sm font-medium text-gray-700">
-                    <select className="mt-1 border border-gray-300 rounded-md px-3 py-2 
-                                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                                 bg-white"
-                        onChange={changeType}
-                        defaultValue=""
-                    >
-                        <option value="" disabled>Type</option>
-                        <option value="Income">Income</option>
-                        <option value="Expense">Expense</option>
-                    </select>
-                </label>
-                <label>
-                    <select className="mt-1 border border-gray-300 rounded-md px-3 py-2 
-                                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                                 bg-white"
-                        onChange={changeCategory}
-                        defaultValue=""
-                    >
-                        <option value="" disabled>Category</option>
-                        {categories.map(category => (
-                            <option key={category} value={category}>{category}</option>
-                        ))}
-                    </select>
-                </label>
-                <label>
-                    <select className="mt-1 border border-gray-300 rounded-md px-3 py-2 
-                                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                                 bg-white"
-                        onChange={changeSortConfig}
-                        defaultValue=""
-                    >
-                        <option value="" disabled>Sort</option>
-                        <option value="Date↑" title="Ascending">Date↑</option>
-                        <option value="Date↓" title="Descending">Date↓</option>
-                        <option value="Amount↑" title="Ascending">Amount↑</option>
-                        <option value="Amount↓" title="Descending">Amount↓</option>
-                    </select>
-                </label>
+                <FilterOptions
+                    categories={categories}
+                    setType={setType}
+                    setCategory={setCategory}
+                    setSortConfig={setSortConfig}
+                />
             </div>
         </>
     )
