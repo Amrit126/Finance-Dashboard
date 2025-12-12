@@ -1,9 +1,10 @@
 export function getFilteredData(transactions, type, category, sortConfig) {
     if (!type && !category && !sortConfig) {
-        return transactions.reverse()
+        return [...transactions].reverse()
     }
 
     let tempData = [...transactions]
+    tempData = tempData.reverse()
 
     if (type) {
         tempData = tempData.filter(data => data.type === type)

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Header } from "../../components/Header";
 import { AddingContainer } from './AddingContainer';
 import { FilterContainer } from './FilterContainer';
+import { TableContainer } from './TableContainer';
 
 export function Transaction({ transactionsData, setTransactionsData, categories }) {
     const [openModal, setOpenModal] = useState(false)
@@ -45,6 +46,11 @@ export function Transaction({ transactionsData, setTransactionsData, categories 
                         setFilteredData={setFilteredData}
                         transactionsData={transactionsData}
                     />
+                </div>
+
+                {/*Table Section*/}
+                <div>
+                    <TableContainer filteredData={filteredData} />
                 </div>
             </div>
         </>
