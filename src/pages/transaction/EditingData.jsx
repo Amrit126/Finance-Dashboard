@@ -28,7 +28,7 @@ export function EditingData({ item, categories, editingId, setEditingId, transac
         }
         const temp = transactionsData.filter(data => {
             if (data.id === editingId) {
-                data.amount = inputAmount
+                data.amount = Number(inputAmount)
                 data.type = selectedType
                 data.category = selectedCategory
             }
