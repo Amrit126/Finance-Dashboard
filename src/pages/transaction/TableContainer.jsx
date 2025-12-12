@@ -1,4 +1,10 @@
-export function TableContainer({ filteredData }) {
+import { useState } from 'react'
+import { EditingData } from './EditingData'
+import { TableData } from './TableData'
+
+export function TableContainer({ filteredData, transactionsData, setTransactionsData, categories }) {
+    const [editingId, setEditingId] = useState(null)
+
     return (
         <table className="w-full border border-gray-300 rounded-lg overflow-hidden mt-4">
             <thead>
@@ -7,6 +13,7 @@ export function TableContainer({ filteredData }) {
                     <th className="px-4 py-2 border-b border-gray-300">Category</th>
                     <th className="px-4 py-2 border-b border-gray-300">Amount (NPR)</th>
                     <th className="px-4 py-2 border-b border-gray-300">Type</th>
+                    <th className="px-4 py-2 border-b border-gray-300">Actions</th>
                 </tr>
             </thead>
 
@@ -19,17 +26,26 @@ export function TableContainer({ filteredData }) {
                             : "bg-red-200 hover:bg-red-300"
                             } transition-colors`}
                     >
-                        <td className="px-4 py-2 border-b border-gray-200">{item.date}</td>
-                        <td className="px-4 py-2 border-b border-gray-200">{item.category}</td>
-                        <td className="px-4 py-2 border-b border-gray-200 font-semibold">
-                            {item.amount}
-                        </td>
-                        <td
-                            className={`px-4 py-2 border-b border-gray-200 font-semibold 
-                                ${item.type === "Income" ? "text-green-700" : "text-red-700"}`}
-                        >
-                            {item.type}
-                        </td>
+                        {editingId === item.id ?
+                            <>
+                                <EditingData
+                                    item={item}
+                                    categories={categories}
+                                    editingId={editingId}
+                                    setEditingId={setEditingId}
+                                    transactionsData={transactionsData}
+                                    setTransactionsData={setTransactionsData}
+                                />
+                            </> :
+                            <>
+                                <TableData
+                                    item={item}
+                                    transactionsData={transactionsData}
+                                    setTransactionsData={setTransactionsData}
+                                    setEditingId={setEditingId}
+                                />
+                            </>
+                        }
                     </tr>
                 )) :
                     null

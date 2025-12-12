@@ -16,7 +16,7 @@ export function Transaction({ transactionsData, setTransactionsData, categories 
         <>
             <title>Transactions</title>
             <Header />
-            <div className="h-screen bg-slate-100 p-4 md:p-8">
+            <div className="h-full bg-slate-100 p-4 md:p-8">
                 <h2 className="text-center text-5xl text-gray-600 font-extrabold">All Transactions</h2>
 
                 {/*Adding modal*/}
@@ -50,7 +50,11 @@ export function Transaction({ transactionsData, setTransactionsData, categories 
 
                 {/*Table Section*/}
                 <div>
-                    <TableContainer filteredData={filteredData} />
+                    <TableContainer filteredData={filteredData}
+                        transactionsData={transactionsData}
+                        setTransactionsData={setTransactionsData}
+                        categories={categories}
+                    />
                 </div>
             </div>
         </>

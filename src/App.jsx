@@ -9,7 +9,8 @@ import { temporaryData } from './utils/temporaryData'
 
 function App() {
   const [transactionsData, setTransactionsData] = useState(temporaryData())
-  const [categories, setCategories] = useState(["Food", "Rent", "Salary", "Groceries", "Shopping"])
+  const [categories, setCategories] = useState(["Food", "Shopping", "Internet", "Health", "Groceries",
+    "Transport", "Salary", "Bonus", "Freelance", "Rent", "Gift"])
 
   return (
     <Routes>
