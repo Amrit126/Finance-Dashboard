@@ -14,9 +14,10 @@ export function getIncomeExpensesByDay(transactions) {
             temp[data.date].expense += data.amount
         }
     })
+    const length = Object.keys(temp).length
 
-    if (temp.length > 30) {
-        return Object.values(temp).slice(temp.length - 30, temp.length)
+    if (length > 30) {
+        return Object.values(temp).slice(length - 15, length)
     }
 
     return (Object.values(temp))

@@ -14,8 +14,11 @@ export function getIncomeExpensesByMonth(transactions) {
             temp[data.YearAndMonth].expense += data.amount
         }
     })
-    if (temp.length > 12) {
-        return Object.values(temp).slice(temp.length - 12, temp.length)
+
+    const length = Object.keys(temp)
+
+    if (length > 12) {
+        return Object.values(temp).slice(length - 12, length)
     }
 
     return Object.values(temp)

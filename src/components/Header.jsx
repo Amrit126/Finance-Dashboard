@@ -27,7 +27,7 @@ export function Header() {
                 </div>
             </div >
             <div className={`${showMenu ? 'translate-y-0' : '-translate-y-full'} 
-            flex justify-between md:hidden text-lg md:text-2xl px-4 py-2 transition-all duration-300 absolute bg-white w-full
+            flex justify-between md:hidden text-lg md:text-xl lg:text-2xl px-4 py-2 transition-all duration-300 absolute bg-white w-full
             border-black border-b`}>
                 <LinkElements />
             </div>
