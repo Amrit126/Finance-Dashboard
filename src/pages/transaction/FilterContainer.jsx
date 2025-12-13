@@ -85,6 +85,9 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
                     setType={setType}
                     setCategory={setCategory}
                     setSortConfig={setSortConfig}
+                    type={type}
+                    category={category}
+                    sortConfig={sortConfig}
                 />
             </div>
         </>

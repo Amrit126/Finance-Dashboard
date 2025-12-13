@@ -1,4 +1,4 @@
-export function FilterOptions({ categories, setCategory, setType, setSortConfig }) {
+export function FilterOptions({ categories, setCategory, setType, setSortConfig, type, category, sortConfig, }) {
     function changeType(e) {
         setType(e.target.value)
     }
@@ -17,7 +17,7 @@ export function FilterOptions({ categories, setCategory, setType, setSortConfig 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                                  bg-white"
                     onChange={changeType}
-                    defaultValue=""
+                    value={type}
                 >
                     <option value="" disabled>Type</option>
                     <option value="Income">Income</option>
@@ -29,7 +29,7 @@ export function FilterOptions({ categories, setCategory, setType, setSortConfig 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                                  bg-white"
                     onChange={changeCategory}
-                    defaultValue=""
+                    value={category}
                 >
                     <option value="" disabled>Category</option>
                     {categories.map(category => (
@@ -42,7 +42,7 @@ export function FilterOptions({ categories, setCategory, setType, setSortConfig 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                                  bg-white"
                     onChange={changeSortConfig}
-                    defaultValue=""
+                    value={sortConfig}
                 >
                     <option value="" disabled>Sort</option>
                     <option value="Date↑" title="Ascending">Date↑</option>
