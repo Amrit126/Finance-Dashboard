@@ -17,13 +17,13 @@ export function Transaction({ transactionsData, setTransactionsData, categories 
             <title>Transactions</title>
             <Header />
             <div className="h-full bg-slate-100 p-4 md:p-8">
-                <h2 className="text-center text-5xl text-gray-600 font-extrabold">All Transactions</h2>
+                <h2 className="text-center text-2xl md:text-5xl text-gray-600 font-extrabold">All Transactions</h2>
 
                 {/*Adding modal*/}
-                <div className="flex justify-center my-12">
-                    <button className={`${openModal ? 'hidden' : ''} bg-black p-4 text-3xl font-extrabold 
-                    text-white w-[10%] rounded-lg shadow-lg shadow-gray-600 cursor-pointer transition-all
-                     duration-300 hover:scale-105 active:scale-95`}
+                <div className="flex justify-center my-6 md:my-12">
+                    <button className={`${openModal ? 'hidden' : ''} bg-black p-2 md:p-4 text-xl md:text-3xl font-extrabold 
+                    text-white w-[30%] md:w-[10%] rounded-lg shadow-lg shadow-gray-600 cursor-pointer 
+                    transition-all duration-300 hover:scale-105 active:scale-95`}
                         onClick={toggleOpenModal}
                     >+</button>
                     <div className={`${openModal ? 'flex' : 'hidden'} flex-col gap-4 w-full md:w-1/2 p-6
@@ -49,7 +49,7 @@ export function Transaction({ transactionsData, setTransactionsData, categories 
                 </div>
 
                 {/*Table Section*/}
-                <div>
+                <div className="overflow-x-auto">
                     <TableContainer filteredData={filteredData}
                         transactionsData={transactionsData}
                         setTransactionsData={setTransactionsData}

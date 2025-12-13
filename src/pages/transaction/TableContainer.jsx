@@ -26,7 +26,7 @@ export function TableContainer({ filteredData, transactionsData, setTransactions
 
     return (
         <>
-            <table className="w-full border border-gray-300 rounded-lg overflow-hidden mt-4">
+            <table className="w-[400px] md:w-full border border-gray-300 rounded-lg overflow-hidden mt-4 text-sm">
                 <thead>
                     <tr className="bg-gray-100 text-left text-gray-700">
                         <th className="px-4 py-2 border-b border-gray-300">Date</th>

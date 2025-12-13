@@ -42,7 +42,7 @@ export function EditingData({ item, categories, editingId, setEditingId, transac
     return (
         <>
             <td className="px-4 py-2 border-b border-gray-200">{item.date}</td>
-            <td className="px-4 py-2 border-b border-gray-200">
+            <td className="md:px-4 md:py-2 border-b border-gray-200">
                 <select
                     className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
@@ -55,7 +55,7 @@ export function EditingData({ item, categories, editingId, setEditingId, transac
                     ))}
                 </select>
             </td>
-            <td className="px-4 py-2 border-b border-gray-200">
+            <td className="md:px-4 md:py-2 border-b border-gray-200">
                 <input
                     className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
@@ -66,9 +66,9 @@ export function EditingData({ item, categories, editingId, setEditingId, transac
                     value={inputAmount}
                 />
             </td>
-            <td className="px-4 py-2 border-b border-gray-200">
+            <td className="md:px-4 md:py-2 border-b border-gray-200">
                 <select
-                    className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 
+                    className="mt-1 w-full border border-gray-300 rounded-md md:px-3 py-2 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                                  bg-white"
                     value={selectedType}

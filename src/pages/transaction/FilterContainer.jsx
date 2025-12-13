@@ -35,8 +35,8 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
 
     return (
         <>
-            <div className="flex gap-3 text-2xl font-bold items-center">
-                <button className="flex text-2xl font-bold gap-1 w-[10%] items-center
+            <div className="flex flex-wrap gap-3 text-xl font-bold items-center">
+                <button className="flex text-2xl font-bold gap-1 w-[20%] md:w-[10%] items-center
                     justify-center p-2 bg-white rounded-lg shadow-lg shadow-gray-400 cursor-pointer
                     transition-all duration-300 hover:scale-105 active:scale-95"
                     onClick={toggleShowFilter}
@@ -78,7 +78,7 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
                     ''
                 }
             </div>
-            <div className={`${showFilter ? 'opacity-1' : 'opcaity-0'} flex mt-4 bg-gray p-4 bg-gray-300
+            <div className={`${showFilter ? 'opacity-1' : 'opcaity-0'} flex flex-wrap mt-4 bg-gray p-4 bg-gray-300
              rounded-xl gap-2 transition-all duration-300`}>
                 <FilterOptions
                     categories={categories}
