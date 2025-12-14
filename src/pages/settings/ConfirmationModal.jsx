@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 
-export function ConfirmationModal({ showModal, setShowModal, deletingCategory }) {
+export function ConfirmationModal({ showModal, setShowModal, deletingCategory, transactions, setTransactionsData,
+    categories, setCategories
+}) {
     const modal = useRef(null)
 
     useEffect(() => {
@@ -28,10 +30,23 @@ export function ConfirmationModal({ showModal, setShowModal, deletingCategory })
         setShowModal(false)
     }
 
+    function deleteCategory(category) {
+        if (categories.length === 1) {
+            alert("You should have at least one category.")
+            return
+        }
+        const newTransactions = transactions.filter(data => data.category !== category)
+        const newCategories = categories.filter(data => data !== category)
+
+        setCategories(newCategories)
+        setTransactionsData(newTransactions)
+        cancelRemovingCategory()
+    }
+
     return (
         <div className={`absolute z-50 h-[400px] bg-black text-white w-[90%]
                 md:w-1/2 ${showModal ? 'flex' : 'hidden'} flex-col justify-between items-center font-semibold 
-                text-xl md:text-3xl gap-2 p-2 rounded-xl py-4`}
+                text-xl md:text-3xl gap-2 p-2 rounded-xl py-4 top-0 mt-10`}
             ref={modal}
         >
             <h3>Delete {deletingCategory}?</h3>
@@ -43,6 +58,7 @@ export function ConfirmationModal({ showModal, setShowModal, deletingCategory })
                 >Cancel</button>
                 <button className="bg-blue-500 text-black rounded-xl p-2
                                     cursor-pointer transition-all duration-300 hover:opacity-80"
+                    onClick={() => deleteCategory(deletingCategory)}
                 >Submit</button>
             </div>
         </div>

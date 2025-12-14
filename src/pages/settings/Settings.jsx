@@ -4,7 +4,7 @@ import { Categories } from "./Categories";
 import { ConfirmationModal } from './ConfirmationModal';
 import { ResetAllData } from './ResetAllData';
 
-export function Settings({ isDark, setIsDark, categories, setCategories }) {
+export function Settings({ isDark, setIsDark, categories, setCategories, transactionsData, setTransactionsData }) {
     const [showModal, setShowModal] = useState(false)
     const [deletingCategory, setDeletingCategory] = useState('')
 
@@ -47,7 +47,7 @@ export function Settings({ isDark, setIsDark, categories, setCategories }) {
                             isDark={isDark}
                         />
 
-                        <ResetAllData />
+                        <ResetAllData setTransactionsData={setTransactionsData} />
                     </div>
                 </div>
 
@@ -55,6 +55,10 @@ export function Settings({ isDark, setIsDark, categories, setCategories }) {
                     showModal={showModal}
                     setShowModal={setShowModal}
                     deletingCategory={deletingCategory}
+                    transactions={transactionsData}
+                    setTransactionsData={setTransactionsData}
+                    categories={categories}
+                    setCategories={setCategories}
                 />
             </div>
         </>

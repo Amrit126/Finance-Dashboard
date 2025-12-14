@@ -35,7 +35,7 @@ export function Categories({ categories, setCategories, setShowModal, setDeletin
     return (
         <div>
             <h2 className="font-extrabold text-2xl md:text-3xl my-4">Categories</h2>
-            <div className="grid grid-cols-2 text-sm md:text-xl md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 text-sm lg:text-xl md:grid-cols-3 gap-3">
                 {categories.map(category => (
                     <div key={category} className={`${isDark ? 'bg-black' : 'bg-white'} flex justify-between 
                     items-center p-3`}>

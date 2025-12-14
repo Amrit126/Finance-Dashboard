@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export function ResetAllData() {
+export function ResetAllData({ setTransactionsData }) {
     const [showConfirmation, setShowConfirmation] = useState(false)
 
     function showConfirmationOn() {
@@ -9,6 +9,11 @@ export function ResetAllData() {
 
     function showConfirmationOff() {
         setShowConfirmation(false)
+    }
+
+    function clearAllData() {
+        setTransactionsData([])
+        showConfirmationOff()
     }
 
     return (
@@ -26,6 +31,7 @@ export function ResetAllData() {
                     >Cancel</button>
                     <button className="bg-blue-500 text-black rounded-xl p-2
                                     cursor-pointer transition-all duration-300 hover:opacity-80"
+                        onClick={clearAllData}
                     >Submit</button>
                 </div>
             </div>
