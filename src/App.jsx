@@ -11,22 +11,27 @@ function App() {
   const [transactionsData, setTransactionsData] = useState(temporaryData())
   const [categories, setCategories] = useState(["Food", "Shopping", "Internet", "Health", "Groceries",
     "Transport", "Salary", "Bonus", "Freelance", "Rent", "Gift"])
+  const [isDark, setIsDark] = useState(true)
 
   return (
     <Routes>
       <Route index element={<HomePage
         transactionsData={transactionsData}
+        isDark={isDark}
       />} />
       <Route path="/transactions" element={<Transaction
         transactionsData={transactionsData}
         setTransactionsData={setTransactionsData}
         categories={categories}
+        isDark={isDark}
       />} />
       <Route path="/settings" element={<Settings
         transactionsData={transactionsData}
         setTransactionsData={setTransactionsData}
         categories={categories}
         setCategories={setCategories}
+        isDark={isDark}
+        setIsDark={setIsDark}
       />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

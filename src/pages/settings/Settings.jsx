@@ -1,11 +1,10 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import { Header } from "../../components/Header";
 
-export function Settings() {
-    const [darkMode, setDarkMode] = useState(false)
+export function Settings({ isDark, setIsDark }) {
 
     function toggleButton() {
-        setDarkMode(isOn => {
+        setIsDark(isOn => {
             return isOn ? false : true
         })
     }
@@ -21,11 +20,11 @@ export function Settings() {
                 <div className="flex p-2 border border-black gap-8 w-full md:w-[30%] justify-between items-center">
                     <p>Dark Mode</p>
                     <div className={`h-[30px] w-[20%] relative rounded-lg
-                    ${darkMode ? 'bg-black' : 'bg-slate-300'} cursor-pointer`}
+                    ${isDark ? 'bg-black' : 'bg-slate-300'} cursor-pointer`}
                         onClick={toggleButton}
                     >
-                        <div className={`absolute h-[30px] w-[50%] ${darkMode ? 'bg-white' : 'bg-black'} 
-                        rounded-3xl ${darkMode ? 'translate-x-full' : 'translate-x-0'} 
+                        <div className={`absolute h-[30px] w-[50%] ${isDark ? 'bg-white' : 'bg-black'} 
+                        rounded-3xl ${isDark ? 'translate-x-full' : 'translate-x-0'} 
                          transition-all duration-300`}>
 
                         </div>

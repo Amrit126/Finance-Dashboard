@@ -1,6 +1,6 @@
 import { getLastFiveTransactions } from "../../utils/getLastFiveTransactions"
 
-export function RecentTransactions({ transactions }) {
+export function RecentTransactions({ transactions, isDark }) {
     const data = getLastFiveTransactions(transactions)
 
     return (
@@ -14,7 +14,7 @@ export function RecentTransactions({ transactions }) {
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody className={`${isDark ? 'text-black' : ''}`}>
                 {data.map((item) => (
                     <tr
                         key={item.id}

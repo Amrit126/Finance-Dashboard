@@ -7,7 +7,7 @@ import { PieChartGraph } from './charts/PieChartGraph'
 import { BarGraph } from './charts/BarGraph'
 import { RecentTransactions } from './RecentTransactions'
 
-export function HomePage({ transactionsData }) {
+export function HomePage({ transactionsData, isDark }) {
     const [isDay, setIsDay] = useState(true)
 
     function turnOnDay() {
@@ -22,7 +22,9 @@ export function HomePage({ transactionsData }) {
         <>
             <title>Dashboard</title>
             <Header />
-            <div className="h-full bg-slate-100 p-4 md:p-8">
+            <div className={`h-full bg-slate-100 p-4 md:p-8 ${isDark ? 'bg-slate-900 text-slate-200' :
+                ''
+                }`}>
                 {/*Summary Cards*/}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 h-[250px] my-4 font-semibold text-xl
                 md:text-3xl">
@@ -32,7 +34,8 @@ export function HomePage({ transactionsData }) {
                 {/*Line Graph */}
                 <div className="my-12 mt-14">
                     <h2 className="text-xl md:text-3xl font-semibold text-center">Income and Expenses Comparison</h2>
-                    <div className="w-full flex justify-center p-4 text-lg md:text-xl font-bold">
+                    <div className={`w-full flex justify-center p-4 text-lg md:text-xl font-bold
+                         ${isDark ? 'text-black' : ''}`}>
                         <button className={`${isDay ? 'bg-white' : 'bg-gray-300'} p-3 cursor-pointer 
                         transition-all duration-300 hover:scale-105`}
                             onClick={turnOnDay}
@@ -64,10 +67,10 @@ export function HomePage({ transactionsData }) {
                 {/*Last 5 Transactions*/}
                 <div className="w-full flex flex-col items-center mt-8">
                     <h2 className="text-xl md:text-3xl font-semibold text-center mb-4">Recent Transactions</h2>
-                    <RecentTransactions transactions={transactionsData} />
+                    <RecentTransactions transactions={transactionsData} isDark={isDark} />
                     <Link
-                        className="my-8 bg-gray-300 p-4 rounded-lg transition-all duration-300
-                        hover:scale-105 hover:opacity-80 cursor-pointer"
+                        className={`my-8 bg-gray-300 p-4 rounded-lg transition-all duration-300 font-medium
+                        hover:scale-105 hover:opacity-80 cursor-pointer ${isDark ? 'text-black' : ''}`}
                         to="/transactions"
                     >View All</Link>
                 </div>
