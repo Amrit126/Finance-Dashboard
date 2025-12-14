@@ -19,7 +19,7 @@ export function Settings({ isDark, setIsDark, categories, setCategories }) {
             <title>Settings</title>
             <Header />
             <div className={`relative bg-slate-100 flex justify-center items-center
-            ${isDark ? 'bg-slate-900 text-white' : 'text-slate-700'} h-screen`}>
+            ${isDark ? 'bg-slate-900 text-white' : 'text-slate-700'} min-h-[900px] max-h-[1500px]`}>
                 <div className={`absolute right-0 left-0 top-0 bottom-0 px-4 md:px-8 py-6 text-xl
              font-bold flex flex-col items-center gap-4 ${showModal ? 'opacity-40' : ''}`}>
                     <h1 className="font-extrabold text-4xl md:text-6xl">Settings</h1>
