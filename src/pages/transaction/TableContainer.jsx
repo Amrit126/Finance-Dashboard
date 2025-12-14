@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { EditingData } from './EditingData'
 import { TableData } from './TableData'
 
-export function TableContainer({ filteredData, transactionsData, setTransactionsData, categories }) {
+export function TableContainer({ filteredData, transactionsData, setTransactionsData, categories, isDark }) {
     const [editingId, setEditingId] = useState(null)
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -44,7 +44,7 @@ export function TableContainer({ filteredData, transactionsData, setTransactions
                             className={`${item.type === "Income"
                                 ? "bg-green-200 hover:bg-green-300"
                                 : "bg-red-200 hover:bg-red-300"
-                                } transition-colors`}
+                                } transition-colors ${isDark ? 'text-black' : ''}`}
                         >
                             {editingId === item.id ?
                                 <>
@@ -73,11 +73,11 @@ export function TableContainer({ filteredData, transactionsData, setTransactions
                 </tbody>
             </table>
 
-            <div className="my-6 flex justify-center gap-4 text-xl text-gray-700">
+            <div className={`my-6 flex justify-center gap-4 text-xl text-gray-700`}>
                 <button className="p-4 rounded-lg bg-slate-300 cursor-pointer"
                     onClick={prevPage}
                 >{'<'}</button>
-                <button>{currentPage}</button>
+                <button className={`${isDark ? 'text-white' : 'text-gray-700'}`}>{currentPage}</button>
                 <button className="p-4 rounded-lg bg-slate-300 cursor-pointer"
                     onClick={nextPage}
                 >{'>'}</button>

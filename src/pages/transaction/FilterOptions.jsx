@@ -1,4 +1,4 @@
-export function FilterOptions({ categories, setCategory, setType, setSortConfig, type, category, sortConfig, }) {
+export function FilterOptions({ categories, setCategory, setType, setSortConfig, type, category, sortConfig }) {
     function changeType(e) {
         setType(e.target.value)
     }
@@ -12,7 +12,7 @@ export function FilterOptions({ categories, setCategory, setType, setSortConfig,
     }
     return (
         <>
-            <label className="text-sm font-medium text-gray-700">
+            <label>
                 <select className="mt-1 border border-gray-300 rounded-md px-3 py-2 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                                  bg-white"

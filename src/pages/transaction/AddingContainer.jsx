@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { getFormattedDate } from '../../utils/getFormattedDate'
 
-export function AddingContainer({ transactionsData, setTransactionsData, categories, setOpenModal }) {
+export function AddingContainer({ transactionsData, setTransactionsData, categories, setOpenModal, isDark }) {
     const [type, setType] = useState("Income")
     const [category, setCategory] = useState(categories[0] ?? '')
     const [inputText, setInputText] = useState('')
@@ -46,12 +46,12 @@ export function AddingContainer({ transactionsData, setTransactionsData, categor
     return (
         <>
             {/* Type */}
-            <label className="w-full text-sm font-medium text-gray-700">
+            <label className={`w-full text-sm font-medium text-gray-700 ${isDark ? 'text-white' : ''}`}>
                 Type
                 <select
                     className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                                 bg-white"
+                                 bg-white text-black"
                     onChange={changeType}
                     value={type}
                 >
@@ -61,12 +61,12 @@ export function AddingContainer({ transactionsData, setTransactionsData, categor
             </label>
 
             {/* Category */}
-            <label className="w-full text-sm font-medium text-gray-700">
+            <label className={`w-full text-sm font-medium text-gray-700 ${isDark ? 'text-white' : ''}`}>
                 Category
                 <select
                     className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 
                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                                 bg-white"
+                                 bg-white text-black"
                     onChange={changeCategory}
                     value={category}
                 >
@@ -77,11 +77,12 @@ export function AddingContainer({ transactionsData, setTransactionsData, categor
             </label>
 
             {/* Amount */}
-            <label className="w-full text-sm font-medium text-gray-700">
+            <label className={`w-full text-sm font-medium text-gray-700 ${isDark ? 'text-white' : ''}`}>
                 Amount
                 <input
-                    className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 
-                                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className={`mt-1 w-full border border-gray-300 rounded-md px-3 py-2 
+                                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                                bg-white text-black`}
                     placeholder="2000"
                     type="number"
                     onChange={changeInputText}

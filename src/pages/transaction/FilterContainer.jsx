@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getFilteredData } from '../../utils/getFilteredData'
 import { FilterOptions } from './FilterOptions'
 
-export function FilterContainer({ categories, setFilteredData, transactionsData }) {
+export function FilterContainer({ categories, setFilteredData, transactionsData, isDark }) {
     const [showFilter, setShowFilter] = useState(false)
     const [type, setType] = useState('')
     const [category, setCategory] = useState('')
@@ -37,15 +37,15 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
         <>
             <div className="flex flex-wrap gap-3 text-xl font-bold items-center">
                 <button className="flex text-2xl font-bold gap-1 w-[20%] md:w-[10%] items-center
-                    justify-center p-2 bg-white rounded-lg shadow-lg shadow-gray-400 cursor-pointer
+                    justify-center p-2 bg-white rounded-lg cursor-pointer
                     transition-all duration-300 hover:scale-105 active:scale-95"
                     onClick={toggleShowFilter}
                 >
                     <img className="w-[30px]" src="/filter.png" alt="Filter Image" />
                 </button>
                 {type ?
-                    <div className="flex p-2 bg-white rounded-lg shadow-lg shadow-gray-400
-                 justify-between items-center">
+                    <div className={`flex p-2 ${isDark ? 'bg-slate-700 text-white' : 'bg-white text-black'}
+                     rounded-lg justify-between items-center`}>
                         <p>{type}</p>
                         <button className="ml-3 text-lg font-medium cursor-pointer transition-all 
                     duration-300 hover:scale-105"
@@ -55,8 +55,8 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
                     ''
                 }
                 {category ?
-                    <div className="flex p-2 bg-white rounded-lg shadow-lg shadow-gray-400
-                 justify-between items-center">
+                    <div className={`flex p-2 ${isDark ? 'bg-slate-700 text-white' : 'bg-white text-black'}
+                     rounded-lg justify-between items-center`}>
                         <p>{category}</p>
                         <button className="ml-3 text-lg font-medium cursor-pointer transition-all 
                     duration-300 hover:scale-105"
@@ -66,8 +66,8 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
                     ''
                 }
                 {sortConfig ?
-                    <div className="flex p-2 bg-white rounded-lg shadow-lg shadow-gray-400
-                 justify-between items-center">
+                    <div className={`flex p-2 ${isDark ? 'bg-slate-700 text-white' : 'bg-white text-black'}
+                     rounded-lg justify-between items-center`}>
                         <p>{sortConfig}</p>
                         <button className="ml-3 text-lg font-medium cursor-pointer transition-all 
                     duration-300 hover:scale-105"
@@ -79,7 +79,7 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
                 }
             </div>
             <div className={`${showFilter ? 'opacity-1' : 'opcaity-0'} flex flex-wrap mt-4 bg-gray p-4 bg-gray-300
-             rounded-xl gap-2 transition-all duration-300`}>
+             rounded-xl gap-2 transition-all duration-300 text-sm font-medium text-gray-700`}>
                 <FilterOptions
                     categories={categories}
                     setType={setType}
@@ -88,6 +88,7 @@ export function FilterContainer({ categories, setFilteredData, transactionsData 
                     type={type}
                     category={category}
                     sortConfig={sortConfig}
+                    isDark={isDark}
                 />
             </div>
         </>
