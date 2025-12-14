@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export function Categories({ categories, setCategories }) {
+export function Categories({ categories, setCategories, setShowModal, setDeletingCategory, isDark }) {
     const [isAdding, setIsAdding] = useState(false)
     const [inputText, setInputText] = useState('')
 
@@ -27,14 +27,22 @@ export function Categories({ categories, setCategories }) {
         cancelAdding()
     }
 
+    function removeCategory(name) {
+        setShowModal(true)
+        setDeletingCategory(name)
+    }
+
     return (
         <div>
             <h2 className="font-extrabold text-2xl md:text-3xl my-4">Categories</h2>
             <div className="grid grid-cols-2 text-sm md:text-xl md:grid-cols-3 gap-3">
                 {categories.map(category => (
-                    <div key={category} className="bg-white flex justify-between items-center p-3">
+                    <div key={category} className={`${isDark ? 'bg-black' : 'bg-white'} flex justify-between 
+                    items-center p-3`}>
                         <p>{category}</p>
-                        <button className="cursor-pointer ">X</button>
+                        <button className="cursor-pointer "
+                            onClick={() => removeCategory(category)}
+                        >X</button>
                     </div>
                 ))}
             </div>
@@ -46,7 +54,7 @@ export function Categories({ categories, setCategories }) {
                     >+</button>
                 </div>
                 <div className={`${isAdding ? 'flex' : 'hidden'} flex-col items-center p-2
-                            bg-gray-300 rounded-xl`}>
+                            bg-gray-300 rounded-xl ${isDark ? 'text-black' : ''} text-lg`}>
                     <h3 className="font-bold">New Category</h3>
                     <label className="mt-4">Name:
                         <input className="bg-white p-1 mx-2 text-black focus:outline-none
