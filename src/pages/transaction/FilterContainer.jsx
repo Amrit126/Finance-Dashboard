@@ -16,9 +16,9 @@ export function FilterContainer({ categories, setFilteredData, transactionsData,
     }, [type, category, sortConfig, setFilteredData, transactionsData])
 
     function toggleShowFilter() {
-        setShowFilter(showFilter => (
-            showFilter ? false : true
-        ))
+        setShowFilter(showFilter => {
+            return showFilter ? false : true
+        })
     }
 
     function removeType() {
@@ -78,8 +78,8 @@ export function FilterContainer({ categories, setFilteredData, transactionsData,
                     ''
                 }
             </div>
-            <div className={`${showFilter ? 'opacity-1' : 'opcaity-0'} flex flex-wrap mt-4 bg-gray p-4 bg-gray-300
-             rounded-xl gap-2 transition-all duration-300 text-sm font-medium text-gray-700`}>
+            <div className={`${showFilter ? 'flex' : 'hidden'} flex-wrap mt-4 bg-gray p-4 bg-gray-300
+             rounded-xl gap-2 text-sm font-medium text-gray-700`}>
                 <FilterOptions
                     categories={categories}
                     setType={setType}

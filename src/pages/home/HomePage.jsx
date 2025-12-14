@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 import { Header } from "../../components/Header"
 import { LineChartGraph } from "./charts/LineChartGraph"
@@ -9,6 +9,13 @@ import { RecentTransactions } from './RecentTransactions'
 
 export function HomePage({ transactionsData, isDark }) {
     const [isDay, setIsDay] = useState(true)
+    const [showNotification, setShowNotification] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShowNotification(false)
+        }, 5000)
+    })
 
     function turnOnDay() {
         setIsDay(true)
@@ -25,6 +32,13 @@ export function HomePage({ transactionsData, isDark }) {
             <div className={`h-full bg-slate-100 p-4 md:p-8 ${isDark ? 'bg-slate-900 text-slate-200' :
                 ''
                 }`}>
+                <div className={`w-[200px] md:w-[300px] h-[200px] absolute bg-white p-2 right-5 md:right-10 flex flex-col 
+                justify-around items-center text-black font-medium rounded-xl 
+                ${showNotification ? 'opacity-100' : 'opacity-0'} transition-all duration-300`}>
+                    <h1 className="text-xl md:text-3xl font-bold">Notification</h1>
+                    <p
+                    >This data is for demo to show you how your data looks like you can reset it on settings.</p>
+                </div>
                 {/*Summary Cards*/}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 h-[250px] my-4 font-semibold text-xl
                 md:text-3xl">
