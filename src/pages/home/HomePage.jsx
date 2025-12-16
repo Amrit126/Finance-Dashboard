@@ -29,6 +29,7 @@ export function HomePage({ transactionsData, isDark }) {
 
     return (
         <>
+            <link rel="icon" type="image/png" href="/dashboard.png" />
             <title>Dashboard</title>
             <Header />
             <div className={`h-full bg-slate-100 p-4 md:p-8 ${isDark ? 'bg-slate-900 text-slate-200' :

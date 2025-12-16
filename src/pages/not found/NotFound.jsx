@@ -3,6 +3,7 @@ import { Header } from "../../components/Header";
 export function NotFound() {
     return (
         <>
+            <link rel="icon" href="/not-found.png" type="image/png" />
             <title>Not Found</title>
             <Header />
 

@@ -19,6 +19,7 @@ export function Settings({ isDark, setIsDark, categories, setCategories, transac
 
     return (
         <>
+            <link rel="icon" type="image/png" href="/settings.png" />
             <title>Settings</title>
             <Header />
             <div className={`relative bg-slate-100 flex justify-center items-center
