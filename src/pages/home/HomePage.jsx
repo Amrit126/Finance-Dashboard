@@ -40,7 +40,8 @@ export function HomePage({ transactionsData, isDark }) {
                 ${showNotification ? 'opacity-100' : 'opacity-0'} transition-all duration-300`}>
                     <h1 className="text-xl md:text-3xl font-bold">Notification</h1>
                     <p
-                    >This data is for demo to show you how your data looks like you can reset it on settings.</p>
+                    >This sample data is provided to illustrate how your information will be displayed. You can clear or
+                        update these entries in the settings menu.</p>
                 </div>
                 {/*Summary Cards*/}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 h-[250px] my-4 font-semibold text-xl
