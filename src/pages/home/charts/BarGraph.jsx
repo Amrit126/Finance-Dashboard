@@ -4,7 +4,7 @@ import { getIncomeExpensesByMonth } from '../../../utils/getIncomeExpensesByMont
 export function BarGraph({ transactions }) {
     let data = getIncomeExpensesByMonth(transactions)
     if (data.length >= 6) {
-        data = data.slice(0, 6)
+        data = data.slice(data.length - 6, data.length)
     }
 
     return (
