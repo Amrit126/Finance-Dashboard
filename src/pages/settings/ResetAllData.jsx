@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { saveEntriesToLocalStorage } from '../../utils/saveEntriesToLocalStorage'
 
 export function ResetAllData({ setTransactionsData }) {
     const [showConfirmation, setShowConfirmation] = useState(false)
@@ -13,6 +14,7 @@ export function ResetAllData({ setTransactionsData }) {
 
     function clearAllData() {
         setTransactionsData([])
+        saveEntriesToLocalStorage([])
         showConfirmationOff()
     }
 

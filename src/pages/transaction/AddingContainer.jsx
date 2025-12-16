@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { getFormattedDate } from '../../utils/getFormattedDate'
+import { saveEntriesToLocalStorage } from '../../utils/saveEntriesToLocalStorage'
 
 export function AddingContainer({ transactionsData, setTransactionsData, categories, setOpenModal, isDark }) {
     const [type, setType] = useState("Income")
@@ -41,6 +42,7 @@ export function AddingContainer({ transactionsData, setTransactionsData, categor
         setInputText('')
         setOpenModal(false)
         setTransactionsData(temp)
+        saveEntriesToLocalStorage(temp)
     }
 
     return (

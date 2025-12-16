@@ -74,11 +74,13 @@ export function TableContainer({ filteredData, transactionsData, setTransactions
             </table>
 
             <div className={`my-6 flex justify-center gap-4 text-xl text-gray-700`}>
-                <button className="p-4 rounded-lg bg-slate-300 cursor-pointer"
+                <button className="p-4 rounded-lg bg-slate-300 cursor-pointer transition-all duration-300
+                hover:opacity-80"
                     onClick={prevPage}
                 >{'<'}</button>
                 <button className={`${isDark ? 'text-white' : 'text-gray-700'}`}>{currentPage}</button>
-                <button className="p-4 rounded-lg bg-slate-300 cursor-pointer"
+                <button className="p-4 rounded-lg bg-slate-300 cursor-pointer transition-all duration-300
+                hover:opacity-80"
                     onClick={nextPage}
                 >{'>'}</button>
             </div>

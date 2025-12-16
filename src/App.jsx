@@ -8,10 +8,11 @@ import './App.css'
 import { temporaryData } from './utils/temporaryData'
 
 function App() {
-  const [transactionsData, setTransactionsData] = useState(temporaryData())
+  const [transactionsData, setTransactionsData] = useState(JSON.parse(localStorage.getItem("transactions")) ||
+    temporaryData())
   const [categories, setCategories] = useState(["Food", "Shopping", "Internet", "Health", "Groceries",
     "Transport", "Salary", "Bonus", "Freelance", "Rent", "Gift"])
-  const [isDark, setIsDark] = useState(true)
+  const [isDark, setIsDark] = useState(false)
 
   return (
     <Routes>

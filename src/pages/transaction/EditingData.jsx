@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { saveEntriesToLocalStorage } from '../../utils/saveEntriesToLocalStorage'
 
 export function EditingData({ item, categories, editingId, setEditingId, transactionsData, setTransactionsData }) {
     const [inputAmount, setInputAmount] = useState(item.amount)
@@ -37,6 +38,7 @@ export function EditingData({ item, categories, editingId, setEditingId, transac
 
         setTransactionsData(temp)
         setEditingId(null)
+        saveEntriesToLocalStorage(temp)
     }
 
     return (

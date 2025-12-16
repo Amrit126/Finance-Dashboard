@@ -1,8 +1,11 @@
+import { saveEntriesToLocalStorage } from "../../utils/saveEntriesToLocalStorage"
+
 export function TableData({ item, transactionsData, setTransactionsData, setEditingId }) {
 
     function deleteData(id) {
         const temp = transactionsData.filter(data => data.id !== id)
         setTransactionsData(temp)
+        saveEntriesToLocalStorage(temp)
     }
 
     function changeEditingid(id) {
