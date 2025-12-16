@@ -12,7 +12,7 @@ function App() {
     temporaryData())
   const [categories, setCategories] = useState(JSON.parse(localStorage.getItem("categories")) || ["Food", "Shopping", "Internet", "Health", "Groceries",
     "Transport", "Salary", "Bonus", "Freelance", "Rent", "Gift"])
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(JSON.parse(localStorage.getItem("theme")) || false)
 
   return (
     <Routes>

@@ -3,6 +3,7 @@ import { Header } from "../../components/Header";
 import { Categories } from "./Categories";
 import { ConfirmationModal } from './ConfirmationModal';
 import { ResetAllData } from './ResetAllData';
+import { saveThemeToLocalStorage } from '../../utils/saveThemeToLocalStorage';
 
 export function Settings({ isDark, setIsDark, categories, setCategories, transactionsData, setTransactionsData }) {
     const [showModal, setShowModal] = useState(false)
@@ -10,7 +11,9 @@ export function Settings({ isDark, setIsDark, categories, setCategories, transac
 
     function toggleButton() {
         setIsDark(isOn => {
-            return isOn ? false : true
+            const newTheme = isOn ? false : true
+            saveThemeToLocalStorage(newTheme)
+            return newTheme
         })
     }
 
