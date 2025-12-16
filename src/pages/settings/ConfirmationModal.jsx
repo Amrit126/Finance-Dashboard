@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { saveCategoriesToLocalStorage } from '../../utils/saveCategoriesToLocalStorage';
+import { saveEntriesToLocalStorage } from '../../utils/saveEntriesToLocalStorage';
 
 export function ConfirmationModal({ showModal, setShowModal, deletingCategory, transactions, setTransactionsData,
     categories, setCategories
@@ -40,6 +42,8 @@ export function ConfirmationModal({ showModal, setShowModal, deletingCategory, t
 
         setCategories(newCategories)
         setTransactionsData(newTransactions)
+        saveCategoriesToLocalStorage(newCategories)
+        saveEntriesToLocalStorage(newTransactions)
         cancelRemovingCategory()
     }
 

@@ -10,7 +10,7 @@ import { temporaryData } from './utils/temporaryData'
 function App() {
   const [transactionsData, setTransactionsData] = useState(JSON.parse(localStorage.getItem("transactions")) ||
     temporaryData())
-  const [categories, setCategories] = useState(["Food", "Shopping", "Internet", "Health", "Groceries",
+  const [categories, setCategories] = useState(JSON.parse(localStorage.getItem("categories")) || ["Food", "Shopping", "Internet", "Health", "Groceries",
     "Transport", "Salary", "Bonus", "Freelance", "Rent", "Gift"])
   const [isDark, setIsDark] = useState(false)
 

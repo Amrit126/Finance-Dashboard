@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { saveCategoriesToLocalStorage } from '../../utils/saveCategoriesToLocalStorage'
 
 export function Categories({ categories, setCategories, setShowModal, setDeletingCategory, isDark }) {
     const [isAdding, setIsAdding] = useState(false)
@@ -24,6 +25,7 @@ export function Categories({ categories, setCategories, setShowModal, setDeletin
         }
         const temp = [...categories, inputText]
         setCategories(temp)
+        saveCategoriesToLocalStorage(temp)
         cancelAdding()
     }
 
