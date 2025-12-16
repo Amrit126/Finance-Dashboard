@@ -4,7 +4,7 @@
 
 It allows users to add, edit and delete transactions, manage categories, and view financial data clearly using line charts, bar charts and pie charts.
 
-[Live Demo](https://)
+[Live Demo](https://finsight-board.vercel.app/)
 
 ---
 
