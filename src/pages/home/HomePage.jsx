@@ -6,16 +6,18 @@ import { SummaryCard } from "./SummaryCards"
 import { PieChartGraph } from './charts/PieChartGraph'
 import { BarGraph } from './charts/BarGraph'
 import { RecentTransactions } from './RecentTransactions'
+import { isNotificationShowed } from '../../utils/isNotificationShowed'
 
 export function HomePage({ transactionsData, isDark }) {
     const [isDay, setIsDay] = useState(true)
-    const [showNotification, setShowNotification] = useState(true)
+    const [showNotification, setShowNotification] = useState(isNotificationShowed() ? false : true)
 
     useEffect(() => {
         setTimeout(() => {
             setShowNotification(false)
+            localStorage.setItem("notificationShowed", JSON.stringify(true))
         }, 5000)
-    })
+    }, [showNotification])
 
     function turnOnDay() {
         setIsDay(true)
